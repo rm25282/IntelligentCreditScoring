@@ -57,8 +57,11 @@ The main ScoreService then takes these individual scores and then applies weight
 score. The weights are set in the application.properties file
 
 org.demo.intelligentcreditscoring.weights.hasConvictionsWeight=1.0
+
 org.demo.intelligentcreditscoring.weights.isRegisteredToVoteWeight=1.0
+
 org.demo.intelligentcreditscoring.weights.loanWeight=4.0
+
 org.demo.intelligentcreditscoring.weights.bankWeight=4.0
 
 The final score produced will be between 0 and 1000
@@ -121,7 +124,7 @@ The following improvements could be made to the algorithm
 - In terms of a bank account the numberOfTimesOverdrawn could be time limited to a year for example
 - Should a high number of loans have a negative impact on a credit score?
 - Should having no loans have a negative impact on a score?
-- Could a calculation based on the number of loans be sued to check whether the account is going to be overdrawn?
+- Could a calculation based on the number of loans be used to check whether the account is going to be overdrawn?
 - A customer with a high income should have a positive impact on the credit score and vice versa
 
 ### Technology
