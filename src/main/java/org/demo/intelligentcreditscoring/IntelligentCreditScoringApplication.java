@@ -1,4 +1,4 @@
-package org.demo.intelligentcreditscoring.IntelligentCreditScoring;
+package org.demo.intelligentcreditscoring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
