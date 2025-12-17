@@ -24,7 +24,7 @@ class ScoreHandlerTest {
     IScoreService scoreService;
 
     @Test
-    void ShouldReturnScore() {
+    void shouldReturnScore() {
 
         WebTestClient client = WebTestClient.bindToRouterFunction(function).build();
 

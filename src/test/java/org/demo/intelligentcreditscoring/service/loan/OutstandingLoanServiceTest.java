@@ -28,7 +28,7 @@ class OutstandingLoanServiceTest {
     private OutstandingLoanService outstandingLoan;
 
     @Test
-    void ShouldScoreOfZeroWhenNumberOfMissedPaymentAreGreaterThanTen() {
+    void shouldScoreOfZeroWhenNumberOfMissedPaymentAreGreaterThanTen() {
         Loan loan = new Loan(LoanType.LOAN, 10000L, 12);
 
         Mockito.when(loanRepository.findAll()).thenReturn(List.of(loan));
@@ -38,7 +38,7 @@ class OutstandingLoanServiceTest {
     }
 
     @Test
-    void ShouldScoreOfFiftyWhenNumberOfMissedPaymentsIsFive() {
+    void shouldScoreOfFiftyWhenNumberOfMissedPaymentsIsFive() {
         Loan loan = new Loan(LoanType.LOAN, 10000L, 5);
 
         Mockito.when(loanRepository.findAll()).thenReturn(List.of(loan));

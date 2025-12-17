@@ -39,7 +39,7 @@ class ScoreServiceTest {
     private BankService bank;
 
     @Test
-    void ShouldReturnFullScoreOf1000WhenAllScoresAreMax() {
+    void shouldReturnFullScoreOf1000WhenAllScoresAreMax() {
 
         scoreWeightsProperties.setHasConvictionsWeight(1.0);
         scoreWeightsProperties.setIsRegisteredToVoteWeight(1.0);
@@ -57,7 +57,7 @@ class ScoreServiceTest {
     }
 
     @Test
-    void ShouldReturnZeroWhenAllScoresAre0() {
+    void shouldReturnZeroWhenAllScoresAre0() {
 
         scoreWeightsProperties.setHasConvictionsWeight(1.0);
         scoreWeightsProperties.setIsRegisteredToVoteWeight(1.0);
@@ -75,7 +75,7 @@ class ScoreServiceTest {
     }
 
     @Test
-    void ShouldReturn600WhenAllScoresAreMaxExceptLoans() {
+    void shouldReturn600WhenAllScoresAreMaxExceptLoans() {
 
         scoreWeightsProperties.setHasConvictionsWeight(1.0);
         scoreWeightsProperties.setIsRegisteredToVoteWeight(1.0);
@@ -94,7 +94,7 @@ class ScoreServiceTest {
     }
 
     @Test
-    void ShouldReturnFullScoreOf1000WhenAllScoresAreMaxButWeightsAdjusted() {
+    void shouldReturnFullScoreOf1000WhenAllScoresAreMaxButWeightsAdjusted() {
 
         scoreWeightsProperties.setHasConvictionsWeight(1.0);
         scoreWeightsProperties.setIsRegisteredToVoteWeight(1.0);

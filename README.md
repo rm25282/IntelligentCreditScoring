@@ -51,9 +51,10 @@ The get credit score API returns
 ## Design
 
 There are four services that mimic the Bank account system, Loan system, Electorial system and Convictions system. These
-return a credit score between 0 and 100 as well as data on what the score was based.
+return a raw credit score between 0 and 100 as well as data on what the score was based.
 
-The main ScoreService then takes these individual scores and then applies weighting to them to calculate the final
+The main ScoreService then takes these individual raw scores and then applies weighting to them to calculate the final
+credit
 score. The weights are set in the application.properties file
 
 org.demo.intelligentcreditscoring.weights.hasConvictionsWeight=1.0
@@ -64,9 +65,9 @@ org.demo.intelligentcreditscoring.weights.loanWeight=4.0
 
 org.demo.intelligentcreditscoring.weights.bankWeight=4.0
 
-The final score produced will be between 0 and 1000
+The final credit score produced will be between 0 and 1000
 
-The final score and the values it was based on are all returned from the ScoreService to the Rest API.
+The final credit score and the values it was based on are all returned from the ScoreService to the Rest API.
 
 ## Technologies used
 
@@ -121,18 +122,18 @@ The following improvements could be made to the algorithm
 - Should missed payments on certain loans have more of a negative impact on the score? ie should a missed mortgage
   payment be more important than a standard loan payment
 - if the customer has no bank account should a credit score of zero be returned?
-- In terms of a bank account the numberOfTimesOverdrawn could be time limited to a year for example
+- In terms of a bank account the numberOfTimesOverdrawn could be time-limited to a year for example
 - Should a high number of loans have a negative impact on a credit score?
 - Should having no loans have a negative impact on a score?
 - Could a calculation based on the number of loans be used to check whether the account is going to be overdrawn?
-- A customer with a high income should have a positive impact on the credit score and vice versa
+- Add customer income: with a high income could have a positive impact on the credit score and vice versa
 
 ### Technology
 
 The following improvements could be made
 
-- Generative AI: The data could be fed to Chat GPT for example to calculate the credit score or to advise how to
-  increase the score bsaed on a set of data
+- Generative AI: The data could be fed to ChatGPT for example to calculate the credit score or to advise how to
+  increase the score based on a set of data
 - Docker: The application could be built as a docker image for deployment
 - Document the APIs: The APIs could be documented using [Spring Rest Docs](https://spring.io/projects/spring-restdocs)
 - Security on the APIs: the APIs should only be accessed by authenticated and authorised users. This should be
@@ -140,4 +141,6 @@ The following improvements could be made
 
 ### Other
 
-- End to end tests: [Karate API](https://www.karatelabs.io/) could be added for CI tests
+- End-to-end tests: [Karate API](https://www.karatelabs.io/) could be added for CI tests
+- Negative tests should be added ie invalid parameters should return a error code in an http response
+- Code formatter and style checker to ensure it meets code standards

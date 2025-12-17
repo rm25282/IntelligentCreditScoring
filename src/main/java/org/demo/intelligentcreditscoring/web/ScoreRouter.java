@@ -17,7 +17,7 @@ public class ScoreRouter {
         return RouterFunctions.route()
                               .GET("/score/{customerId}",
                                       accept(MediaType.APPLICATION_JSON),
-                                      scoreHandler::getScore)
+                                      scoreHandler::getCreditScore)
                               .build();
     }
 }

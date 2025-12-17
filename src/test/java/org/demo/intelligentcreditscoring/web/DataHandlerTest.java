@@ -33,7 +33,7 @@ class DataHandlerTest {
     }
 
     @Test
-    void ShouldAcceptBankAccount() {
+    void shouldAcceptBankAccount() {
 
         client = WebTestClient.bindToRouterFunction(function).build();
 
@@ -47,7 +47,7 @@ class DataHandlerTest {
     }
 
     @Test
-    void ShouldAcceptBankLoan() {
+    void shouldAcceptBankLoan() {
 
         final LoanAccount loanAccount = new LoanAccount(LoanAccountType.MORTGAGE, 200000L, 0);
 
@@ -59,7 +59,7 @@ class DataHandlerTest {
     }
 
     @Test
-    void ShouldAcceptSetConvictions() {
+    void shouldAcceptSetConvictions() {
         client.put().uri(uriBuilder -> uriBuilder.path("/legal/{customerId}/convictions")
                                                  .queryParam("convicted", true).build(1))
               .accept(MediaType.APPLICATION_JSON)
@@ -68,7 +68,7 @@ class DataHandlerTest {
     }
 
     @Test
-    void ShouldAcceptSetRegisteredToVote() {
+    void shouldAcceptSetRegisteredToVote() {
         client.put().uri(uriBuilder -> uriBuilder.path("/legal/{customerId}/registered")
                                                  .queryParam("vote", true).build(1, true))
               .accept(MediaType.APPLICATION_JSON)

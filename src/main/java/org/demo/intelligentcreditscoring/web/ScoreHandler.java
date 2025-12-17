@@ -18,7 +18,7 @@ public class ScoreHandler implements IScoreHandler {
     }
 
     @Override
-    public Mono<ServerResponse> getScore(ServerRequest request) {
+    public Mono<ServerResponse> getCreditScore(ServerRequest request) {
         final String customerId = request.pathVariable("customerId");
         return ok().bodyValue(scoreService.getCreditScore(Integer.parseInt(customerId)));
     }

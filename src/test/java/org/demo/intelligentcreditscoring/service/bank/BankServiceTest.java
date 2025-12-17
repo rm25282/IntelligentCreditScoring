@@ -27,7 +27,7 @@ class BankServiceTest {
     private BankService bank;
 
     @Test
-    void ShouldReturnOneHundredWhenZeroMissedPaymentsAndNotOverdrawn() {
+    void shouldReturnOneHundredWhenZeroMissedPaymentsAndNotOverdrawn() {
         final DbBankAccount dbBankAccount = new DbBankAccount(500.00, 500.00, 0);
 
         Mockito.when(bankAccountRepository.findAll()).thenReturn(List.of(dbBankAccount));
@@ -38,7 +38,7 @@ class BankServiceTest {
     }
 
     @Test
-    void ShouldReturnZeroWhenAccountIsOverdrawn() {
+    void shouldReturnZeroWhenAccountIsOverdrawn() {
         final DbBankAccount dbBankAccount = new DbBankAccount(500.00, -600.00, 0);
 
         Mockito.when(bankAccountRepository.findAll()).thenReturn(List.of(dbBankAccount));
@@ -50,7 +50,7 @@ class BankServiceTest {
 
 
     @Test
-    void ShouldReturn0WhenAccountIsOverdrawnAndTenTimesOverdrawn() {
+    void shouldReturn0WhenAccountIsOverdrawnAndTenTimesOverdrawn() {
         final DbBankAccount dbBankAccount = new DbBankAccount(500.00, -600.00, 10);
 
         Mockito.when(bankAccountRepository.findAll()).thenReturn(List.of(dbBankAccount));
@@ -61,7 +61,7 @@ class BankServiceTest {
     }
 
     @Test
-    void ShouldReturnFiftyWhenAccountIsNotOverdrawnAndFiveTimesOverdrawn() {
+    void shouldReturnFiftyWhenAccountIsNotOverdrawnAndFiveTimesOverdrawn() {
         final DbBankAccount dbBankAccount = new DbBankAccount(500.00, -500.00, 5);
 
         Mockito.when(bankAccountRepository.findAll()).thenReturn(List.of(dbBankAccount));
