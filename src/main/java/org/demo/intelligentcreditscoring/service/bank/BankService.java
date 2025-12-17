@@ -19,7 +19,13 @@ public class BankService implements IBankService {
 
     }
 
-    private static boolean isAccountOverdrawn(DbBankAccount bankAccount) {
+    /**
+     * Calculates whether the account is over its overdraft limit
+     *
+     * @param bankAccount account details
+     * @return true if its over it overdraft limit
+     */
+    private static boolean isAccountPastOverdrawnLimit(DbBankAccount bankAccount) {
         // For comparison making overdraft limit minus
         return bankAccount.getCurrentBalance() < -bankAccount.getOverdraftLimit();
     }
@@ -29,22 +35,20 @@ public class BankService implements IBankService {
 
         final List<DbBankAccount> bankAccounts = bankAccountRepository.findAll();
 
-        int finalScore = 0;
+        int finalScore = 100;
         for (DbBankAccount bankAccount : bankAccounts) {
-            if (isAccountOverdrawn(bankAccount)) {
+            if (isAccountPastOverdrawnLimit(bankAccount)) {
                 finalScore -= 100;
-            } else {
-                finalScore += 100;
             }
 
             finalScore -= bankAccount.getNumberOfTimesOverdrawn() * 10;
         }
 
-        long numberOfOverdrawnAccounts = bankAccounts
+        long numberOfAccountsPastOverdrawnLimit = bankAccounts
                 .stream()
-                .filter(BankService::isAccountOverdrawn)
+                .filter(BankService::isAccountPastOverdrawnLimit)
                 .count();
 
-        return new Bank(numberOfOverdrawnAccounts > 0, max(finalScore, 0));
+        return new Bank(numberOfAccountsPastOverdrawnLimit > 0, max(finalScore, 0));
     }
 }

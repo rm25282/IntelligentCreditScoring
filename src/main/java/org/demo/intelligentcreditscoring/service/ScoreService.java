@@ -52,7 +52,7 @@ public class ScoreService implements IScoreService {
                 loanScore.creditScore() * scoreWeightsProperties.getLoanWeight() +
                 bankScore.bankCreditScore() * scoreWeightsProperties.getBankWeight();
 
-        return new CreditScore(bankScore.currentlyOverdrawn(), loanScore.numberOfMissedPayments(), isRegisteredToVoteScore.registered(), hasConvictionsScore.hasConvictions(), creditScore);
+        return new CreditScore(bankScore.pastOverdrawnLimit(), loanScore.numberOfMissedPayments(), isRegisteredToVoteScore.registered(), hasConvictionsScore.hasConvictions(), creditScore);
 
     }
 }

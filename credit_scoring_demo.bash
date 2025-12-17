@@ -87,7 +87,7 @@ show_menu() {
   echo
   echo " 1) Create bank account"
   echo " 2) Create loan"
-  echo " 3) Set registered status"
+  echo " 3) Set registered to vote status"
   echo " 4) Set convictions status"
   echo " 5) Get score"
   echo " 6) Delete customer data"
@@ -115,7 +115,7 @@ create_bank_account() {
 }
 
 create_loan() {
-  read -rp "Account type [LOAN]: " type
+  read -rp "Account type (one of MORTGAGE, CREDIT_CARD, LOAN, HOUSEHOLD_BILL) [LOAN]: " type
   read -rp "Loan amount [10000]: " amount
   read -rp "Number of missed payments [0]: " missed
 
